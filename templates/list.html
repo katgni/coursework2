@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block body %}
+
+<br/>
+</br/>
+</br/>
+<section id="services" class="section-wrapper">
+        <div class="container">
+            <div class="row">
+				<hr class="section-heading-spacer">
+                <!-- Section Header -->
+                <div class="col-md-12 col-sm-12 col-xs-12 section-header wow fadeInDown">
+                    <h2><span class="highlight-text">All Items</span></h2>
+                   
+                    <p class="lead col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, nam corporis quas, saepe minima error aperiam dolorum aliquam, quis deserunt eos eius quisquam odio itaque.</p>
+                </div>
+                <!-- Section Header End -->
+ 
+                <div class="our-services">
+			 
+		
+
+                    <div class="row">
+                     
+	{% for row in rows %}
+	
+	
+	
+	
+			
+	
+          <div class="col-md-4 col-sm-4 col-xs-12 text-xs-center wow fadeInDown">
+            <div class="service-box">
+            <!-- Icons -->
+			<a class="btn btn-categories"href="/treasures/{{ row['page_name'] }}">
+            
+	<center>
+            <!-- Title -->
+            <h2>{{ row['location'] }}</h2>
+
+            <!-- Description -->
+            <h4>{{ row["name"] }}</h4>
+			</a>
+</center>		
+			<figure>
+			
+			
+			<div class="img-hover">
+              <a href="/treasures/{{ row['page_name'] }}"> <img src="/static/img/{{ row['img'] }}" style="width:100%" class="img-responsive">
+			  </div> 
+            </figure>
+			
+			
+			
+
+          </div> <!-- /.col-md-3 -->
+		  </div>
+{%  endfor %}
+
+                    </div>
+					
+
+
+					
+					
+                </div> 
+
+            </div>
+        </div>
+    </section> 
+     
+{% endblock %}

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Businnes, Portfolio, Treasure Hunters"> 
+	<meta name="Author" content="Treasure Hunters"> 
+    <title>Treasure Hunters Website</title>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome/css/font-awesome.min.css')}}">
+		
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+        <script type="text/javascript" src="js/selectivizr.js"></script>
+    <![endif]-->
+		
+	
+ <link href="{{ url_for("static", filename="font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" />
+ <link href="{{ url_for("static", filename="css/bootstrap.css") }}" rel="stylesheet" />
+ <link href="{{ url_for("static", filename="css/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" />
+ 
+ <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
+   <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+  <style>
+  
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300);
+@import url(https://fonts.googleapis.com/css?family=Muli);
+@import url('https://fonts.googleapis.com/css?family=Satisfy'); 
+  
+  
+  
+body, html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 700;
+}
+
+
+h1,h2,h3,h4,h5,h6{
+font-family: 'Satisfy', cursive;
+    /* font-weight: 700; */
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+h4{
+	font-size: 21px;
+	color: #927B00;
+	margin-left:30px;
+	
+}
+
+h3{
+	font-size: 25px;
+	color: #000;
+	text-align: center;
+}
+
+h2{
+
+	color:#F0E68C;
+	text-align: center;
+}
+
+.lead {
+	font-size: 18px;
+	font-weight: 400;
+
+}
+
+
+b, strong {
+    font-weight: bold;
+	margin-left:10px;
+}
+
+
+p{
+	font-size: 15px;
+	text-align: left;
+	margin-left:30px;
+	margin-right:30px;
+	font-weight: 500;
+
+}
+.intro-header {
+	padding-top: 50px; /* If you"re making other pages, make sure there is 50px of padding to make sure the navbar doesn"t overlap content! */
+	padding-bottom: 50px;
+	color: #f8f8f8;
+	background: url(../static/img/slider-img-2a.jpg) no-repeat center center;
+	text-align: center;
+}
+
+.intro-message {
+	position: relative;
+	padding-top: 20%;
+	padding-bottom: 20%;
+}
+
+.intro-message > h1 {
+	margin: 0;
+	font-size: 5em;
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.intro-divider {
+	width: 400px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.intro-message > h3 {
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 767px) {
+	.intro-message {
+		padding-bottom: 15%;
+	}
+
+	.intro-message > h1 {
+		font-size: 3em;
+	}
+
+	ul.intro-social-buttons > li {
+		display: block;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	ul.intro-social-buttons > li:last-child {
+		margin-bottom: 0;
+	}
+
+	.intro-divider {
+		width: 100%;
+	}
+}
+
+.network-name {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 2px;
+}
+
+.content-section-a {
+	background-color: #f8f8f8;
+	padding: 50px 0;
+}
+
+.content-section-b {
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+	padding: 50px 0;
+}
+
+.section-heading {
+	margin-bottom: 30px;
+}
+
+.section-heading-spacer {
+	border-top: 3px solid #e7e7e7;
+	width: 200px;
+	float: left;
+}
+
+.banner {
+	padding: 100px 0;
+	color: #f8f8f8;
+	background: url(/../static/img/slider-img-2a.jpg) no-repeat center center;
+	background-size: cover;
+}
+
+.banner h2 {
+	margin: 0;
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+	font-size: 3em;
+}
+
+.banner ul {
+	margin-bottom: 0;
+}
+
+.banner-social-buttons {
+	float: right;
+	margin-top: 0;
+}
+
+@media (max-width: 1199px) {
+	ul.banner-social-buttons {
+		float: left;
+		margin-top: 15px;
+	}	
+}
+
+@media (max-width: 767px) {
+	.banner h2 {
+		margin: 0;
+		text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+		font-size: 3em;
+	}
+
+	ul.banner-social-buttons > li {
+		display: block;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	ul.banner-social-buttons > li:last-child {
+		margin-bottom: 0;
+	}	
+}
+
+.footer-container p {
+    color: #999;
+}
+
+
+footer{
+	background-color: #111111;
+	padding: 20px 15px;
+	overflow: hidden;
+}
+
+footer .footer-containertent{
+	text-align: center;
+}
+
+footer .footer-logo{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+footer p{
+	color: #828282;
+	margin-bottom: 15px;
+	font-size: 13px;
+}
+
+footer ul {
+	display: inline-block;
+}
+
+footer ul li{
+	float: left;
+	margin-right: 15px;
+}
+
+footer ul li:last-child{
+	margin-right: 0;
+}
+
+footer ul li a{
+	font-size: 18px;
+}
+
+footer ul li a i{
+	font-size: 21px;
+	color: #BCBCBC;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+.footer-container {
+	background-color: #111111;
+	padding: 60px 30px;
+}
+.footer-containertent {
+}
+.footer-container a {
+	color: #999;
+}
+.footer-container a:hover {
+	opacity: 0.6;
+}
+.footer-container ul li {
+	color: #949494;
+	padding-top: 8px;
+}
+
+.footer-container ul li i{
+	margin-right: 10px;
+	font-size: 20px;
+}
+.footer-social-info li {
+	width: 44px;
+	height: 44px;
+	margin: 0px 15px 0px auto;
+	text-align: center;
+	float: left;
+	padding: 8px;
+	border: 1px solid #6E6E6E;
+	border-radius: 50%;
+}
+
+
+
+p.copyright {
+	margin: 15px 0 0;
+}
+
+.span9 {
+    width: 900px;
+}
+
+.thumbnails {
+    margin-left: -20px;
+    list-style: none;
+	display: block;
+	text-align: centre;
+	position: relative;
+}
+
+.thumbnail {
+	position: relative;
+}
+
+.span3{width:270px}
+}
+	
+
+section#services {
+    background: #E6E6E6;
+    padding: 100px 0;
+}
+
+.section-wrapper{
+	overflow: hidden;
+}
+
+  .service-wrapper > div{
+    margin-bottom: 50px;
+  }
+
+.service-box {
+	padding: 25px 0 0;
+	border: 1px solid #fff;
+	margin-bottom: 30px;
+	background: #fff;
+}
+
+
+
+ul{
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.navbar-header {
+margin-top:10px;
+margin-bottom:20px;
+padding-bottom: 10px;
+padding-top: 10px;
+}
+
+.navbar-nav li a{
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+	margin-top:40px;
+    padding-bottom: 0;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    text-transform: uppercase;
+}
+
+
+.nav-pills a{
+ text-transform: uppercase;
+ color: #003f00;
+ font-size: 15px;
+  font-weight: 500;
+  padding-bottom: 0;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+
+
+
+	</style>
+	
+	
+	
+	
+</head>
+
+<body>
+
+ 
+
+        <!-- Navigation Menu start-->
+		
+	 <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+
+		<div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost:5000/"><img class="logo" id="logo" src="../static/images/logo.png" alt="logo"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                         <li> <a href="{{ url_for(".root") }}"> Home </a> </li>
+
+						 <li> <a href="{{ url_for(".root") }}#about"> ABOUT </a> </li>
+						 
+						 <li><a href="{{ url_for(".root") }}#services">CATEGORIES</a></li>
+						 
+						  <li><a href="{{ url_for(".list") }}">ALL TREASURES</a></li>
+	
+                       <li><a href="{{ url_for(".root") }}#contact">CONTACT US</a></li>
+					   
+					   <li><a href="{{url_for('login')}}">MY ACCOUNT</a>
+						
+						
+						
+						
+            </ul> 
+        </div>
+    </div>
+</nav>
+
+        
+
+    <!-- Header End -->
+
+
+
+<div class="container">
+  <div class="row" style="margin-top: 300px;">
+    <div class="span12">
+	 <div class="col-md-3">
+	 </div>
+      <div class="col-md-6">
+	     <div class="panel panel-default  ">
+                      <div class="panel-heading text-center">
+					  <h1>Error 500</h1>
+                      <div class="panel-body text-center">
+				  <h3>There was a problem with loading the page.
+				  </br>
+				  because of internal server issue. </h3>
+				  </br>
+				  <h4>Appologies gor any inconvenience</h4>
+				  </br>
+				 <h3> Please come back later.</h3></b>
+				  
+        
+         </br> <a href="/" type="submit" class="btn btn-large btn-success">Home</a>
+					</br>
+					  </br>
+                      </div>
+          </div>
+					
+         
+        </div>
+		 <div class="col-md-3">
+	 </div>
+        <br>
+
+       
+        <!-- By ConnerT HTML & CSS Enthusiast -->  
+    </div>
+  </div>
+</div>
+        <!-- /.container -->
+
+
+					</br>
+					  </br>
+					  </br>
+					  </br>
+					  </br>
+					  </br>
+
+
+
+
+
+</div>
+<div class="clearfix"></div>
+  
+	
+
+	
+	
+	
+	
+    <!-- Contact Section End -->
+
+	
+	    <!-- /.content-section-a -->
+
+    <div class="banner">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Connect to my profiles:</h2>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="list-inline banner-social-buttons">
+                        <li><a href="https://twitter.com/gn_kat" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                        </li>
+                        <li><a href="https://github.com/katgni" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                        </li>
+                        <li><a href="https://uk.linkedin.com/in/katarzyna-gniady-brzoza-9039a0100" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.banner -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    <section class="footer-container">
+        <div class="container">
+            <div class="row footer-containertent">
+                <div class="col-md-4">
+                    <img src="../static/images/logo.png" alt="">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et porro quos iste ratione doloribus asperiores, error omnis delectus rerum sapiente. Et, aliquam modi beatae quae in perferendis ab est fugiat!</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>News & Updates</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, nam corporis quas, saepe minima error aperiam dolorum aliquam, quis deserunt eos eius quisquam odio itaque.</p>
+                </div>
+                <div class="col-md-4 contac-us">
+                    <h4>Contact Us</h4>
+                    <p>Lorem ipsum dolor sit amet adipisicing elit.</p>
+					<ul>
+                            <li><i class="fa fa-home"></i>123 Collinton Road</li>
+                            <li><i class="fa fa-phone"></i>001 123 12345 99</li>
+                            <li><i class="fa fa-envelope-o"></i>support@website.com</li>
+                        </ul> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+
+        <div class="container">
+            <div class="row">
+                <div class="footer-containertent">
+
+                    <ul class="footer-social-info">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                        </li>
+                    </ul>
+					<br/><br/>
+<p>Copyright © 2016. Designed with love by  <a href="http://kgbdesign.co.uk/">Kat Gn</a>.  All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+	
+	
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>   
+	
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>	
+	<script src="{{url_for('static', filename='js/jquery.scrollUp.min.js')}}"></script>	
+	<script src="{{url_for('static', filename='js/nav.js')}}"></script>	
+	<script src="{{url_for('static', filename='js/smooth-scroll.min.js')}}"></script>	
+	<script src="{{url_for('static', filename='contact/jqBootstrapValidation.js')}}"></script>
+	<script src="{{url_for('static', filename='js/custom.js')}}"></script>
+
+</body>
+</html>

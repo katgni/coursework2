@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block body %}
+   
+<div class="container">
+
+           <div class="row" style="margin-top: 100px;">
+                <div class="col-lg-8 col-sm-8 col-md-8">
+   
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <h3>Add to Database</h3>
+   <div class="crearfix"></div>
+   <br/>
+    {% if 'username' in session %}
+	
+
+        	<div class="col-lg-10">
+			<div class="well">
+
+			 <form action="{{url_for('music')}}"  method="post" id="treasures-form" class="login_input">
+                
+    
+			<h4>Enter details</h4><br/>
+        <div class="form-group">
+       <input class="span3" type="text" placeholder="Treasure Name" name="name" value=""/> </div>
+        <br/>
+
+         <div class="form-group">      
+       <input class="span3" type="text" placeholder="Year of Discovery" name="year" value="" /></div>
+	   </br>
+	   
+	   <div class="form-group"> 
+		<label for="inf">Description</label>
+		<textarea class="form-control" id="info" name="info" rows="3" value=""></textarea>
+
+	   
+       </div>
+	   </br>
+	   
+	    <div class="form-group">     
+       <input type="text" placeholder="Location" name="location" value="" class="span3" /> </div>
+        <br/>
+      
+	   
+	    <div class="form-group">      
+       <input type="text" placeholder="Page Name" name="page_name" value="" class="span3" /></div>
+        <br/>
+       
+	   
+	   <div class="form-group">
+	<label for="category">Category</label>
+<select multiple class="form-control" id="category" name="category">
+	   
+
+<option value="artefacts">Artefacts</option>
+<option value="gold">Gold</option>
+<option value="coins">Coins</option>
+<option value="fossils">Fossils</option>
+<option value="stones">Stones</option>
+<option value="shipwrecks">Shipwrecks</option>
+<option value="message">Message</option>
+<option value="gold_pan">Gold Pan</option>
+<option value="metals">Metal</option>
+</select>
+</div>
+	   <br/>
+	   
+ <div class="form-group">
+	<label for="img">Image 1</label>
+<select multiple class="form-control" id="img" name="img">
+	   
+
+<option value="dummy-image1.jpg">dummy-image1.jpg</option>
+<option value="dummy-image2.jpg">dummy-image2.jpg</option>
+
+</select>
+</div>
+	   <br/>   
+	   
+	   
+ <div class="form-group">
+	<label for="img2">Image 2</label>
+<select multiple class="form-control" id="img2" name="img2">
+	   
+
+<option value="dummy-image3.jpg">dummy-image3.jpg</option>
+<option value="dummy-image4.jpg">dummy-image4.jpg</option>
+
+</select>
+</div>
+	   <br/>   	   
+        <div class="controls">
+      
+			  <button type="submit" class="btn btn-danger">Submit</button>
+        </div>
+        
+    </form>
+	
+	
+	<br/>
+	</br/>
+
+
+</div>
+</div>
+		
+    {% endif %}
+	
+	
+	        {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+        {% endwith %}
+		
+		
+{% endblock %}
+
+
+
