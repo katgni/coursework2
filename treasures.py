@@ -134,13 +134,9 @@ app.add_url_rule('/data/',
 def contactme():
     return render_template('form_submit.html')
 
-# Define a route for the action of the form, for example '/hello/'
-# We are also defining which type of requests this route is 
-# accepting: POST requests in this case
 
-
-@app.route('/hello/', methods=['POST'])
-def hello():
+@app.route('/thankyou/', methods=['POST'])
+def thankyou():
     name=request.form['yourname']
     email=request.form['youremail']
     message=request.form['message']
