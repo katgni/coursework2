@@ -83,7 +83,6 @@ def form():
         img = request.form['img']
         img2 = request.form['img2']
 
-
         if (name and year and info and location and page_name and category and img and img2):
            con = sqlite3.connect("mydatabase.db")
            cur = con.cursor()
@@ -97,6 +96,7 @@ def form():
 
       except:
            msg="Something went wrong. Try again."
+           print msg
 
 
     return render_template('form.html', msg=msg)
@@ -129,8 +129,22 @@ app.add_url_rule('/data/',
                  view_func=Data.as_view('data'),
                   methods=["GET", "POST"])
 
-	
+@app.route('/contactme/')
 
+def contactme():
+    return render_template('form_submit.html')
+
+# Define a route for the action of the form, for example '/hello/'
+# We are also defining which type of requests this route is 
+# accepting: POST requests in this case
+
+
+@app.route('/hello/', methods=['POST'])
+def hello():
+    name=request.form['yourname']
+    email=request.form['youremail']
+    message=request.form['message']
+    return render_template('form_action.html', name=name, email=email, message=message)
 
 
 if __name__ == "__main__":
