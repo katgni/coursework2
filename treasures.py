@@ -114,6 +114,18 @@ def list():
     return render_template("list.html",rows = rows)
 	
 	
+@app.route('/delete')
+def delete():
+    con = sql.connect("mydatabase.db")
+    con.row_factory = sql.Row
+   
+    cur = con.cursor()
+    cur.execute("select * from treasures")
+    rows = cur.fetchall();
+	
+    return render_template("delete.html",rows = rows)
+	
+	
 # Routes for login
 app.add_url_rule('/',
                  view_func=Main.as_view('main'),
@@ -133,6 +145,7 @@ app.add_url_rule('/data/',
 
 def contactme():
     return render_template('form_submit.html')
+
 
 
 @app.route('/thankyou/', methods=['POST'])
