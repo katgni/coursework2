@@ -452,6 +452,7 @@ padding-top: 10px;
 					{% if 'username' in session %}
                 
                 <li><a href="{{url_for('form')}}">Add Records</a></li>
+				<li><a href="{{url_for('delete')}}">Delete</a></li>
                 <li><a href="{{url_for('login')}}">Logout</a>
                 {% else %}
                 <li><a href="{{url_for('login')}}">Login</a>
@@ -492,13 +493,14 @@ padding-top: 10px;
       
  
 
-        	<div class="col-lg-10">
+
 			<div class="well">
 
 			 <form action="{{url_for('form')}}"  method="post" id="treasures-form" class="login_input">
                 
     
-			<h4>Enter details</h4><br/>
+			<h4>Enter details</h4>
+			<br/>
         <div class="form-group">
        <input class="span3" type="text" placeholder="Treasure Name" name="name" value=""/> </div>
         <br/>
@@ -569,7 +571,7 @@ padding-top: 10px;
 	   <br/>   	   
         <div class="controls">
       
-			  <button type="submit" class="btn btn-danger">Submit</button>
+			<center>  <button type="submit" class="btn btn-danger">Submit</button> </center>
         </div>
         
     </form>
@@ -584,10 +586,11 @@ padding-top: 10px;
 	  {% endif %}
 
 </div>
-</div>	
+
 </div>
 </div>
 </div>
+
 	<br/>
 	</br/>
 	</br/>

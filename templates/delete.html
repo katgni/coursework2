@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block body %}
+
+<br/>
+</br/>
+</br/>
+
+
+<section id="services" class="section-wrapper">
+        <div class="container">
+            <div class="row">
+				<hr class="section-heading-spacer">
+                <!-- Section Header -->
+                <div class="col-md-12 col-sm-12 col-xs-12 section-header wow fadeInDown">
+				
+				
+				
+                    <h2><span class="highlight-text">Delete Items</span></h2>
+                   
+              <h3>This option is available for logged users only.</h3>
+                </div>
+				
+				
+                <!-- Section Header End -->
+ {% if session['username'] %}
+                <div class="our-services">
+			 
+		
+
+                    <div class="row">
+                     
+	{% for row in rows %}
+	
+	
+	
+	
+			
+	
+          <div class="col-md-4 col-sm-4 col-xs-12 text-xs-center wow fadeInDown">
+            <div class="service-box">
+            <!-- Icons -->
+			<a class="btn btn-categories"href="/treasures/{{ row['page_name'] }}">
+            
+	<center>
+            <!-- Title -->
+            <h2>{{ row['location'] }}</h2>
+
+            <!-- Description -->
+            <h4>{{ row["name"] }}</h4>
+			
+			</a>
+			<div class="col-md-8 col-md-offset-2"><br><div id="success"> </div><button type="submit" class="btn btn-danger btn-md">Delete Item</button></div> 	 
+</center>	<br/></br/>	
+<br/><br/>	
+			<figure>
+			
+			
+			<div class="img-hover">
+              <a href="/treasures/{{ row['page_name'] }}"> <img src="/static/img/{{ row['img'] }}" style="width:100%" class="img-responsive">
+			  </div> 
+            </figure>
+			
+			
+			
+
+          </div> <!-- /.col-md-3 -->
+		  </div>
+{%  endfor %}
+
+                    </div>
+					
+
+
+					
+					
+                </div> 
+
+            </div>
+        </div>
+    </section> 
+	 {% endif %}
+     
+{% endblock %}
