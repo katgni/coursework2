@@ -19,11 +19,15 @@
         	<div class="col-lg-10">
 			<div class="well">
 
-			 <form action="{{url_for('music')}}"  method="post" id="treasures-form" class="login_input">
+			 <form action="{{url_for('data')}}"  method="post" id="treasures-form" class="login_input">
                 
     
 			<h4>Enter details</h4><br/>
-        <div class="form-group">
+        
+		<div class="form-group">
+       <input class="span3" type="text" placeholder="Treasure ID" name="id" value=""/> </div>
+        <br/>
+		<div class="form-group">
        <input class="span3" type="text" placeholder="Treasure Name" name="name" value=""/> </div>
         <br/>
 
@@ -53,7 +57,7 @@
 	<label for="category">Category</label>
 <select multiple class="form-control" id="category" name="category">
 	   
-
+<option value="artefacts">Uncategorised</option>
 <option value="artefacts">Artefacts</option>
 <option value="gold">Gold</option>
 <option value="coins">Coins</option>
@@ -115,7 +119,9 @@
         {% endfor %}
         {% endwith %}
 		
-		
+</div>
+</div>
+</div>		
 {% endblock %}
 
 

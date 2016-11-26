@@ -453,14 +453,16 @@ padding-top: 10px;
 						 <li><a href="{{ url_for(".root") }}#services">CATEGORIES</a></li>
 						 
 						 <li><a href="{{ url_for(".list") }}"> ALL TREASURES</a></li>
-						
+						 
+						  <li><a href="/sef">SEARCH</a></li>
+						  			
 					    <li><a href="{{ url_for(".contactme") }}"> CONTACT US</a></li>
 						 
 				
 					{% if 'username' in session %}
                 
                 <li><a href="{{url_for('form')}}">Add Records</a></li>
-				<li><a href="{{url_for('delete')}}">Delete</a></li>
+				<li><a href="/del">Delete</a></li> 
                 <li><a href="{{url_for('login')}}">Logout</a>
                 {% else %}
                 <li><a href="{{url_for('login')}}">Login</a>

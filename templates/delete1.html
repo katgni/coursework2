@@ -1,0 +1,86 @@
+{% extends "base.html"%}
+{% block body %}
+
+
+</br/>
+</br/>
+</br>
+
+<section id="services" class="section-wrapper">
+        <div class="container">
+            <div class="row">
+				<hr class="section-heading-spacer">
+                <!-- Section Header -->
+                <div class="col-md-12 col-sm-12 col-xs-12 section-header wow fadeInDown">
+				
+				
+				
+                    <h2><span class="highlight-text">Record has been deleted</span></h2>
+                   
+              <h3>All Database results presented below:.</h3>
+                </div>
+				
+				
+                <!-- Section Header End -->
+
+                     
+{%for a,b,c,d,e,f,g,h,i in row%}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Image1</th>
+	  <th>Location</th>
+	  <th>Page Name</th>
+	  <th>Category</th>
+    </tr>
+  </thead>
+  <div="clearfix"></div>
+
+  <tbody>
+    <tr>
+      <th scope="row">{{a}}</th>
+      <td>{{b}}</td>
+      <td>{{c}}</td>
+      <td>{{d}}</td>
+	  <td>{{g}}</td>
+	  <td><a href="/treasures/{{h}}">{{h}}</a></td>
+	  <td>{{i}}</td>
+	  
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+
+{% endfor %}
+
+
+
+
+</div>
+</div>
+</div>
+
+
+                    </div>
+					
+
+
+					
+					
+                </div> 
+
+            </div>
+        </div>
+    </section> 
+	</div>
+
+ </div>    
+{% endblock %}
+
