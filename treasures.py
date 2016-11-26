@@ -10,10 +10,48 @@ from login import Login
 from data import Data
 
 app = Flask(__name__)
-
+app.database='mydatabase.db'
+conn=sqlite3.connect("mydatabase.db")
 app.secret_key = settings.secret_key
 
 
+
+@app.route('/search')
+def search():
+ return render_template("search.html")
+def connect_db():
+ return sqlite3.connect(app.database)
+ 
+@app.route('/sef')
+def sef():
+ return render_template('search.html')
+
+ 
+@app.route('/ser',methods=['POST'])
+def ser():
+ 
+ g.db = connect_db()
+ cur=g.db.execute( "select * from treasures where location = ? ", (request.form['search'],) )
+ row = cur.fetchall()
+ return render_template("searchresults.html",row=row)
+ 
+ 
+@app.route('/del')
+def delt():
+ return render_template('del.html')
+ 
+ 
+@app.route('/delete1',methods=['POST'])
+def delete1():
+ g.db = connect_db()
+ g.db.execute( "delete from treasures where id = ? ", (request.form['delete1'],) )
+ g.db.commit()
+ cur=g.db.execute( "select * from treasures ")
+ row=cur.fetchall()
+ return render_template("delete1.html",row=row)  
+ 
+
+ 
 @app.route('/')
 def root():
     connection = sqlite3.connect("mydatabase.db")
@@ -74,6 +112,7 @@ def form():
     msg = None
     if request.method == 'POST':
       try:
+        id = request.form['id']
         name = request.form['name']
         year = request.form['year']
         info = request.form['info']
@@ -83,10 +122,10 @@ def form():
         img = request.form['img']
         img2 = request.form['img2']
 
-        if (name and year and info and location and page_name and category and img and img2):
+        if (id and name and year and info and location and page_name and category and img and img2):
            con = sqlite3.connect("mydatabase.db")
            cur = con.cursor()
-           cur.execute("INSERT INTO treasures (name,year,info,location,page_name,category,img,img2) VALUES (?,?,?,?,?,?,?,?)",(name,year,info,location,page_name,category,img,img2) )
+           cur.execute("INSERT INTO treasures (id,name,year,info,location,page_name,category,img,img2) VALUES (?,?,?,?,?,?,?,?,?)",(id,name,year,info,location,page_name,category,img,img2) )
 
            con.commit()
            msg = "Record successfully added"
@@ -159,5 +198,3 @@ def thankyou():
 if __name__ == "__main__":
  app.run( host ='0.0.0.0', debug = True )
  
-
-

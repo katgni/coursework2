@@ -8,11 +8,8 @@ It can be accessed by following steps:
 4. Run "Putty.exe" to connect to the Levinux server through SSH connection.
 5. In the putty's login window type "tc@localhost" in the "Host Name", choose port "2222".
 6. At the bottom of the login window there is a button called "open" - click on it. Then insert password "foo" again. Now you should be connected via putty to your server.
-7. In order to find the application type "cd coursework2/ ". To see the files type "ls".
+7. In order to find the application type "cd coursework/ " and then "cd src /". To see the folder content type "ls".
 8. Next type "python treasures.py" to run the python application.
 9. Access the applocation via any browser (Chrome, Firefox etc).
 10. In the browser's address bar type "localhost:5000".
 11. Now you should be able to see Treasure Hunters application.
-12. Click My Account link if you want to add some records to database.
-12a. Login details: login: kat, password: napier
-13. 

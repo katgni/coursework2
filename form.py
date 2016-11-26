@@ -10,6 +10,7 @@ def form():
     msg = None
     if request.method == 'POST':
       try:
+        id = request.form['id']
         name = request.form['name']
         year = request.form['year']
         info = request.form['info']
@@ -20,10 +21,10 @@ def form():
         img2 = request.form['img2']
 
 
-        if (name and year and info and location and page_name and category and img and img2):
+        if (id and name and year and info and location and page_name and category and img and img2):
            con = sqlite3.connect("mydatabase.db")
            cur = con.cursor()
-           cur.execute("INSERT INTO treasures (name,year,info,location,page_name,category,img,img2) VALUES (?,?,?,?,?,?,?,?)",(name,year,info,location,page_name,category,img,img2) )
+           cur.execute("INSERT INTO treasures (id, name,year,info,location,page_name,category,img,img2) VALUES (?,?,?,?,?,?,?,?,?)",(id,name,year,info,location,page_name,category,img,img2) )
 
            con.commit()
            msg = "Record successfully added"
