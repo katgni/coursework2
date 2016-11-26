@@ -14,7 +14,7 @@ app.database='mydatabase.db'
 conn=sqlite3.connect("mydatabase.db")
 app.secret_key = settings.secret_key
 
-
+# Routes for search
 
 @app.route('/search')
 def search():
@@ -35,7 +35,7 @@ def ser():
  row = cur.fetchall()
  return render_template("searchresults.html",row=row)
  
- 
+ # Routes for delete
 @app.route('/del')
 def delt():
  return render_template('del.html')
@@ -51,7 +51,7 @@ def delete1():
  return render_template("delete1.html",row=row)  
  
 
- 
+   # Route for Home page
 @app.route('/')
 def root():
     connection = sqlite3.connect("mydatabase.db")
@@ -62,7 +62,7 @@ def root():
     return render_template("index.html", rows=rows)
 
 	
-	#Templates for errors
+	#Error handlers
 	
 @app.errorhandler(404)
 def page_not_found(e):
@@ -72,7 +72,7 @@ def page_not_found(e):
 def internal_server_error(e):
     return render_template('500.html'), 500
 
-	
+    # Routes for single items	
 @app.route('/treasures')
 @app.route('/treasures/<name>')
 def treasures(name):
@@ -88,7 +88,9 @@ def treasures(name):
     
 	return render_template('treasures.html',  name=name, all=all, treasures=treasures)  
 	connection.close()
-    
+
+	
+    # Route for categories  
 @app.route('/category')
 @app.route('/category/<name>')
 def category(name):
@@ -106,7 +108,7 @@ def category(name):
 	return render_template('category.html', rows = rows, name=name, all=all, treasures=treasures)  
     
 	
-	
+    # Route for Add Items Form	
 @app.route('/form', methods=('GET', 'POST'))
 def form():
     msg = None
@@ -140,7 +142,7 @@ def form():
 
     return render_template('form.html', msg=msg)
   
-
+# Route for all items list
 @app.route('/list')
 def list():
     con = sql.connect("mydatabase.db")
@@ -152,7 +154,7 @@ def list():
     rows = cur.fetchall();
     return render_template("list.html",rows = rows)
 	
-	
+# Route for delete items option	
 @app.route('/delete')
 def delete():
     con = sql.connect("mydatabase.db")
@@ -182,11 +184,12 @@ app.add_url_rule('/data/',
 
 @app.route('/contactme/')
 
+# Route for Contact Page
 def contactme():
     return render_template('form_submit.html')
 
 
-
+# Route for thank you page from contact form
 @app.route('/thankyou/', methods=['POST'])
 def thankyou():
     name=request.form['yourname']
