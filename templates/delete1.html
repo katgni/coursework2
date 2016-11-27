@@ -1,7 +1,31 @@
 {% extends "base.html"%}
 {% block body %}
 
+<style>
+.table td.fit, 
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
+container {
+        width: 80%;
+    }
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
 
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  border: 1px solid #ddd;
+}		
+	
+</style>
 </br/>
 </br/>
 </br>
@@ -23,9 +47,9 @@
 				
                 <!-- Section Header End -->
 
-                     
+                  
 {%for a,b,c,d,e,f,g,h,i in row%}
-
+<table class="table-responsive">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -54,7 +78,7 @@
 
   </tbody>
 </table>
-
+</table>
 
 
 
