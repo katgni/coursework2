@@ -505,11 +505,11 @@ padding-top: 10px;
 			{% for row in treasures %}
               <br>
 
-			<div class="col-md-6">
-				<img src="http://localhost:5000/static/img/{{ row['img'] }}" style="width:100%" class="img-responsive img-rounded">
+			<div class="col-md-8">
+				<img src="http://localhost:5000/static/img/{{ row['img'] }}" class="img-responsive img-rounded">
          
 			   </div>
-			   <div class="col-md-6">
+			   <div class="col-md-4">
 					
 
 <h3>{{ row["name"] }}</h3>
@@ -522,12 +522,8 @@ padding-top: 10px;
  
     <h4>Category : </h4>
    	<p>{{ row["category"] }}</p>
-<br/>
-<br/>
-<br/>
-<br/>
-    <h4>More details :</h4>
-   	<p>{{ row["info"] }}</p>
+
+
  
 					  
                   
@@ -539,12 +535,19 @@ padding-top: 10px;
              
               	
             
-              
+  <div class="clearfix"></div>            
               	
 				
 				<div class="row" >
+				
+<br/>
+<br/>
+<br/>
+<br/>				
+				
 				<div class="col-md-8">
-					
+					    <h3>More details :</h3>
+						<p>{{ row["info"] }}</p>	
 				</div>
 			<div class="col-md-4">
 			<center><img src="http://localhost:5000/static/img/location.png" style="max-width:80px;"  class="img-responsive"></center>
@@ -559,7 +562,7 @@ padding-top: 10px;
 			
 			</div>
 
-		
+	
             
               	
                 {%  endfor %} 
