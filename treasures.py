@@ -22,13 +22,13 @@ def search():
 def connect_db():
  return sqlite3.connect(app.database)
  
-@app.route('/sef')
-def sef():
+@app.route('/searchform')
+def searchform():
  return render_template('search.html')
 
  
-@app.route('/ser',methods=['POST'])
-def ser():
+@app.route('/searchresults',methods=['POST'])
+def searchresults():
  
  g.db = connect_db()
  cur=g.db.execute( "select * from treasures where location = ? ", (request.form['search'],) )
